@@ -35,7 +35,7 @@ setup(
     version=VERSION,
     description="InsightVM API",
     author_email="support@rapid7.com",
-    url="https://nexpose.mattersight.local/api/3/",
+    url="",
     keywords=["Swagger", "InsightVM API"],
     install_requires=REQUIRES,
     packages=find_packages(),

@@ -40,7 +40,7 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = "https://nexpose.mattersight.local/api/3/"
+        self.host = "https://localhost"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -50,9 +50,9 @@ class Configuration(object):
         # dict to store API prefix (e.g. Bearer)
         self.api_key_prefix = {}
         # Username for HTTP basic authentication
-        self.username = "DeanTestAPIUser"
+        self.username = ""
         # Password for HTTP basic authentication
-        self.password = "nx8JFgC3jo*pyZzu,6wt"
+        self.password = ""
 
         # Logging Settings
         self.logger = {}
@@ -72,7 +72,7 @@ class Configuration(object):
         # SSL/TLS verification
         # Set this to false to skip verifying SSL certificate when calling API
         # from https server.
-        self.verify_ssl = False
+        self.verify_ssl = True
         # Set this to customize the certificate file to verify the peer.
         self.ssl_ca_cert = None
         # client certificate file
