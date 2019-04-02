@@ -1,6 +1,6 @@
-# swaggerNexposeClient.RootApi
+# rapid7vmconsole.RootApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,12 +18,12 @@ Returns a listing of the resources (endpoints) that are available to be invoked 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.RootApi()
+api_instance = rapid7vmconsole.RootApi()
 
 try:
     # Resources

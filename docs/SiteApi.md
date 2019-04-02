@@ -1,6 +1,6 @@
-# swaggerNexposeClient.SiteApi
+# rapid7vmconsole.SiteApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -97,12 +97,12 @@ Adds a tag to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 tag_id = 56 # int | The identifier of the tag.
 
@@ -147,12 +147,12 @@ Grants a non-administrator user access to the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 param0 = 56 # int | The identifier of the user. (optional)
 
@@ -187,7 +187,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_site**
-> ReferenceWithSiteIDLink create_site(param0=param0)
+> ReferenceWithSiteIDLink create_site(site=site)
 
 Sites
 
@@ -197,17 +197,17 @@ Creates a new site with the specified configuration.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
-param0 = swaggerNexposeClient.SiteCreateResource() # SiteCreateResource | Resource for creating a site configuration. (optional)
+api_instance = rapid7vmconsole.SiteApi()
+site = rapid7vmconsole.SiteCreateResource() # SiteCreateResource | Resource for creating a site configuration. (optional)
 
 try:
     # Sites
-    api_response = api_instance.create_site(param0=param0)
+    api_response = api_instance.create_site(site=site)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->create_site: %s\n" % e)
@@ -217,7 +217,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**SiteCreateResource**](SiteCreateResource.md)| Resource for creating a site configuration. | [optional] 
+ **site** | [**SiteCreateResource**](SiteCreateResource.md)| Resource for creating a site configuration. | [optional] 
 
 ### Return type
 
@@ -235,7 +235,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_site_credential**
-> CreatedReferenceCredentialIDLink create_site_credential(id, param1=param1)
+> CreatedReferenceCredentialIDLink create_site_credential(id, site_credential=site_credential)
 
 Site Scan Credentials
 
@@ -245,18 +245,18 @@ Creates a new site credential.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param1 = swaggerNexposeClient.SiteCredential() # SiteCredential | The specification of a site credential. (optional)
+site_credential = rapid7vmconsole.SiteCredential() # SiteCredential | The specification of a site credential. (optional)
 
 try:
     # Site Scan Credentials
-    api_response = api_instance.create_site_credential(id, param1=param1)
+    api_response = api_instance.create_site_credential(id, site_credential=site_credential)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->create_site_credential: %s\n" % e)
@@ -267,7 +267,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param1** | [**SiteCredential**](SiteCredential.md)| The specification of a site credential. | [optional] 
+ **site_credential** | [**SiteCredential**](SiteCredential.md)| The specification of a site credential. | [optional] 
 
 ### Return type
 
@@ -285,7 +285,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_site_scan_schedule**
-> ReferenceWithScanScheduleIDLink create_site_scan_schedule(id, param0=param0)
+> ReferenceWithScanScheduleIDLink create_site_scan_schedule(id, scan_schedule=scan_schedule)
 
 Site Scan Schedules
 
@@ -295,18 +295,18 @@ Creates a new scan schedule for the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = swaggerNexposeClient.ScanSchedule() # ScanSchedule | Resource for a scan schedule. (optional)
+scan_schedule = rapid7vmconsole.ScanSchedule() # ScanSchedule | Resource for a scan schedule. (optional)
 
 try:
     # Site Scan Schedules
-    api_response = api_instance.create_site_scan_schedule(id, param0=param0)
+    api_response = api_instance.create_site_scan_schedule(id, scan_schedule=scan_schedule)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->create_site_scan_schedule: %s\n" % e)
@@ -317,7 +317,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**ScanSchedule**](ScanSchedule.md)| Resource for a scan schedule. | [optional] 
+ **scan_schedule** | [**ScanSchedule**](ScanSchedule.md)| Resource for a scan schedule. | [optional] 
 
 ### Return type
 
@@ -335,7 +335,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_site_smtp_alert**
-> ReferenceWithAlertIDLink create_site_smtp_alert(id, param0=param0)
+> ReferenceWithAlertIDLink create_site_smtp_alert(id, alert=alert)
 
 Site SMTP Alerts
 
@@ -345,18 +345,18 @@ Creates a new SMTP alert for the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = swaggerNexposeClient.SmtpAlert() # SmtpAlert | Resource for creating a new SMTP alert. (optional)
+alert = rapid7vmconsole.SmtpAlert() # SmtpAlert | Resource for creating a new SMTP alert. (optional)
 
 try:
     # Site SMTP Alerts
-    api_response = api_instance.create_site_smtp_alert(id, param0=param0)
+    api_response = api_instance.create_site_smtp_alert(id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->create_site_smtp_alert: %s\n" % e)
@@ -367,7 +367,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**SmtpAlert**](SmtpAlert.md)| Resource for creating a new SMTP alert. | [optional] 
+ **alert** | [**SmtpAlert**](SmtpAlert.md)| Resource for creating a new SMTP alert. | [optional] 
 
 ### Return type
 
@@ -385,7 +385,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_site_snmp_alert**
-> ReferenceWithAlertIDLink create_site_snmp_alert(id, param0=param0)
+> ReferenceWithAlertIDLink create_site_snmp_alert(id, alert=alert)
 
 Site SNMP Alerts
 
@@ -395,18 +395,18 @@ Creates a new SNMP alert for the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = swaggerNexposeClient.SnmpAlert() # SnmpAlert | Resource for creating a new SNMP alert. (optional)
+alert = rapid7vmconsole.SnmpAlert() # SnmpAlert | Resource for creating a new SNMP alert. (optional)
 
 try:
     # Site SNMP Alerts
-    api_response = api_instance.create_site_snmp_alert(id, param0=param0)
+    api_response = api_instance.create_site_snmp_alert(id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->create_site_snmp_alert: %s\n" % e)
@@ -417,7 +417,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**SnmpAlert**](SnmpAlert.md)| Resource for creating a new SNMP alert. | [optional] 
+ **alert** | [**SnmpAlert**](SnmpAlert.md)| Resource for creating a new SNMP alert. | [optional] 
 
 ### Return type
 
@@ -435,7 +435,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_site_syslog_alert**
-> ReferenceWithAlertIDLink create_site_syslog_alert(id, param0=param0)
+> ReferenceWithAlertIDLink create_site_syslog_alert(id, alert=alert)
 
 Site Syslog Alerts
 
@@ -445,18 +445,18 @@ Creates a new Syslog alert for the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = swaggerNexposeClient.SyslogAlert() # SyslogAlert | Resource for creating a new Syslog alert. (optional)
+alert = rapid7vmconsole.SyslogAlert() # SyslogAlert | Resource for creating a new Syslog alert. (optional)
 
 try:
     # Site Syslog Alerts
-    api_response = api_instance.create_site_syslog_alert(id, param0=param0)
+    api_response = api_instance.create_site_syslog_alert(id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->create_site_syslog_alert: %s\n" % e)
@@ -467,7 +467,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**SyslogAlert**](SyslogAlert.md)| Resource for creating a new Syslog alert. | [optional] 
+ **alert** | [**SyslogAlert**](SyslogAlert.md)| Resource for creating a new Syslog alert. | [optional] 
 
 ### Return type
 
@@ -495,12 +495,12 @@ Deletes all alerts from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -543,12 +543,12 @@ Deletes all site credentials from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -591,12 +591,12 @@ Deletes all scan schedules from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -639,12 +639,12 @@ Deletes all SMTP alerts from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -687,12 +687,12 @@ Deletes all SNMP alerts from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -735,12 +735,12 @@ Deletes all Syslog alerts from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -783,12 +783,12 @@ site.delete.description
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -831,12 +831,12 @@ Deletes the specified site credential.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 credential_id = 56 # int | The identifier of the site credential.
 
@@ -881,12 +881,12 @@ Deletes the specified scan schedule from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 schedule_id = 56 # int | The identifier of the scan schedule.
 
@@ -931,12 +931,12 @@ Deletes the specified SMTP alert from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
 
@@ -981,12 +981,12 @@ Deletes the specified SNMP alert from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
 
@@ -1031,12 +1031,12 @@ Deletes the specified Syslog alert from the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
 
@@ -1071,7 +1071,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enable_shared_credential_on_site**
-> Links enable_shared_credential_on_site(id, credential_id, param0=param0)
+> Links enable_shared_credential_on_site(id, credential_id, status=status)
 
 Assigned Shared Credential Enablement
 
@@ -1081,19 +1081,19 @@ Enable or disable the shared credential for the site's scans.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 credential_id = 56 # int | The identifier of the shared credential.
-param0 = true # bool | Flag indicating whether the shared credential is enabled for the site's scans. (optional)
+status = true # bool | Flag indicating whether the shared credential is enabled for the site's scans. (optional)
 
 try:
     # Assigned Shared Credential Enablement
-    api_response = api_instance.enable_shared_credential_on_site(id, credential_id, param0=param0)
+    api_response = api_instance.enable_shared_credential_on_site(id, credential_id, status=status)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->enable_shared_credential_on_site: %s\n" % e)
@@ -1105,7 +1105,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
  **credential_id** | **int**| The identifier of the shared credential. | 
- **param0** | **bool**| Flag indicating whether the shared credential is enabled for the site&#39;s scans. | [optional] 
+ **status** | **bool**| Flag indicating whether the shared credential is enabled for the site&#39;s scans. | [optional] 
 
 ### Return type
 
@@ -1123,7 +1123,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enable_site_credential**
-> Links enable_site_credential(id, credential_id, param0=param0)
+> Links enable_site_credential(id, credential_id, status=status)
 
 Site Credential Enablement
 
@@ -1133,19 +1133,19 @@ Enable or disable the site credential for scans.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 credential_id = 56 # int | The identifier of the site credential.
-param0 = true # bool | Flag indicating whether the credential is enabled for use during the scan. (optional)
+status = true # bool | Flag indicating whether the credential is enabled for use during the scan. (optional)
 
 try:
     # Site Credential Enablement
-    api_response = api_instance.enable_site_credential(id, credential_id, param0=param0)
+    api_response = api_instance.enable_site_credential(id, credential_id, status=status)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->enable_site_credential: %s\n" % e)
@@ -1157,7 +1157,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
  **credential_id** | **int**| The identifier of the site credential. | 
- **param0** | **bool**| Flag indicating whether the credential is enabled for use during the scan. | [optional] 
+ **status** | **bool**| Flag indicating whether the credential is enabled for use during the scan. | [optional] 
 
 ### Return type
 
@@ -1185,12 +1185,12 @@ Retrieves the excluded asset groups in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1233,12 +1233,12 @@ Retrieves the excluded targets in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1281,12 +1281,12 @@ Retrieves the included asset groups in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1329,12 +1329,12 @@ Retrieves the included targets in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1377,12 +1377,12 @@ Retrieves the site with the specified identifier.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1425,12 +1425,12 @@ Retrieve all alerts defined in the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1473,12 +1473,12 @@ Retrieves a paged resource of assets linked with the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
@@ -1527,12 +1527,12 @@ Retrieves the specified site credential.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 credential_id = 56 # int | The identifier of the site credential.
 
@@ -1577,12 +1577,12 @@ Retrieves all defined site credential resources.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1625,12 +1625,12 @@ Retrieves the discovery connection assigned to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1673,12 +1673,12 @@ Retrieve the search criteria of the dynamic site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1721,12 +1721,12 @@ Retrieves the site organization information.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1769,12 +1769,12 @@ Retrieves the resource of the scan engine assigned to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1817,12 +1817,12 @@ Retrieves the specified scan schedule.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 schedule_id = 56 # int | The identifier of the scan schedule.
 
@@ -1867,12 +1867,12 @@ Returns all scan schedules for the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1915,12 +1915,12 @@ Retrieves the resource of the scan template assigned to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -1963,12 +1963,12 @@ Retrieve all of the shared credentials assigned to the site. These shared creden
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2011,12 +2011,12 @@ Retrieves the specified SMTP alert.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
 
@@ -2061,12 +2061,12 @@ Retrieves all SMTP alerts defined in the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2109,12 +2109,12 @@ Retrieves the specified SNMP alert.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
 
@@ -2159,12 +2159,12 @@ Retrieves all SNMP alerts defined in the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2207,12 +2207,12 @@ Retrieves the specified Syslog alert.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
 
@@ -2257,12 +2257,12 @@ Retrieves all Syslog alerts defined in the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2305,12 +2305,12 @@ Retrieves the list of tags added to the sites.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2353,12 +2353,12 @@ Retrieve the list of non-administrator users that have access to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2401,12 +2401,12 @@ Retrieves a paged resource of accessible sites.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
 sort = ['sort_example'] # list[str] | The criteria to sort the records by, in the format: `property[,ASC|DESC]`. The default sort order is ascending. Multiple sort criteria can be specified using multiple sort query parameters. (optional)
@@ -2453,12 +2453,12 @@ Retrieves all HTML form authentications configured in the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2501,12 +2501,12 @@ Retrieves all HTTP header authentications configured in the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2549,12 +2549,12 @@ Removes all excluded asset groups from the specified static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2597,12 +2597,12 @@ Removes all included asset groups from the specified static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2645,12 +2645,12 @@ Removes an asset from a site. The asset will only be deleted if it belongs to no
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 asset_id = 789 # int | The identifier of the asset.
 
@@ -2695,12 +2695,12 @@ Removes the specified asset group from the excluded asset groups configured in t
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 asset_group_id = 56 # int | The identifier of the asset group.
 
@@ -2745,12 +2745,12 @@ Removes the specified asset group from the included asset groups configured in t
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 asset_group_id = 56 # int | The identifier of the asset group.
 
@@ -2795,12 +2795,12 @@ Removes all assets from the specified site. Assets will be deleted entirely from
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 
 try:
@@ -2843,12 +2843,12 @@ Removes the specified tag from the site's tags.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 tag_id = 56 # int | The identifier of the tag.
 
@@ -2893,12 +2893,12 @@ Removes the specified user from the site's access list.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 user_id = 56 # int | The identifier of the user.
 
@@ -2933,7 +2933,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_credentials**
-> Links set_site_credentials(id, param1=param1)
+> Links set_site_credentials(id, site_credentials=site_credentials)
 
 Site Scan Credentials
 
@@ -2943,18 +2943,18 @@ Updates multiple site credentials.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param1 = [swaggerNexposeClient.SiteCredential()] # list[SiteCredential] | A list of site credentials resources. (optional)
+site_credentials = [rapid7vmconsole.SiteCredential()] # list[SiteCredential] | A list of site credentials resources. (optional)
 
 try:
     # Site Scan Credentials
-    api_response = api_instance.set_site_credentials(id, param1=param1)
+    api_response = api_instance.set_site_credentials(id, site_credentials=site_credentials)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_credentials: %s\n" % e)
@@ -2965,7 +2965,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param1** | [**list[SiteCredential]**](SiteCredential.md)| A list of site credentials resources. | [optional] 
+ **site_credentials** | [**list[SiteCredential]**](SiteCredential.md)| A list of site credentials resources. | [optional] 
 
 ### Return type
 
@@ -2983,7 +2983,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_discovery_connection**
-> Links set_site_discovery_connection(id, param0=param0)
+> Links set_site_discovery_connection(id, connection_id=connection_id)
 
 Site Discovery Connection
 
@@ -2993,18 +2993,18 @@ Updates the discovery connection assigned to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = 789 # int | The identifier of the discovery connection. (optional)
+connection_id = 789 # int | The identifier of the discovery connection. (optional)
 
 try:
     # Site Discovery Connection
-    api_response = api_instance.set_site_discovery_connection(id, param0=param0)
+    api_response = api_instance.set_site_discovery_connection(id, connection_id=connection_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_discovery_connection: %s\n" % e)
@@ -3015,7 +3015,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **int**| The identifier of the discovery connection. | [optional] 
+ **connection_id** | **int**| The identifier of the discovery connection. | [optional] 
 
 ### Return type
 
@@ -3043,14 +3043,14 @@ Update the search criteria of the dynamic site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param1 = swaggerNexposeClient.DiscoverySearchCriteria() # DiscoverySearchCriteria | param1
+param1 = rapid7vmconsole.DiscoverySearchCriteria() # DiscoverySearchCriteria | param1
 
 try:
     # Site Discovery Search Criteria
@@ -3083,7 +3083,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_scan_engine**
-> Links set_site_scan_engine(id, param0=param0)
+> Links set_site_scan_engine(id, scan_engine_id=scan_engine_id)
 
 Site Scan Engine
 
@@ -3093,18 +3093,18 @@ Updates the assigned scan engine to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = 56 # int | The identifier of the scan engine. (optional)
+scan_engine_id = 56 # int | The identifier of the scan engine. (optional)
 
 try:
     # Site Scan Engine
-    api_response = api_instance.set_site_scan_engine(id, param0=param0)
+    api_response = api_instance.set_site_scan_engine(id, scan_engine_id=scan_engine_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_scan_engine: %s\n" % e)
@@ -3115,7 +3115,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **int**| The identifier of the scan engine. | [optional] 
+ **scan_engine_id** | **int**| The identifier of the scan engine. | [optional] 
 
 ### Return type
 
@@ -3133,7 +3133,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_scan_schedules**
-> Links set_site_scan_schedules(id, param0=param0)
+> Links set_site_scan_schedules(id, scan_schedules=scan_schedules)
 
 Site Scan Schedules
 
@@ -3143,18 +3143,18 @@ Updates all scan schedules for the specified site in a single request using the 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.ScanSchedule()] # list[ScanSchedule] | Array of resources for updating all scan schedules defined in the site. Scan schedules defined in the site that are omitted from this request will be deleted from the site. (optional)
+scan_schedules = [rapid7vmconsole.ScanSchedule()] # list[ScanSchedule] | Array of resources for updating all scan schedules defined in the site. Scan schedules defined in the site that are omitted from this request will be deleted from the site. (optional)
 
 try:
     # Site Scan Schedules
-    api_response = api_instance.set_site_scan_schedules(id, param0=param0)
+    api_response = api_instance.set_site_scan_schedules(id, scan_schedules=scan_schedules)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_scan_schedules: %s\n" % e)
@@ -3165,7 +3165,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**list[ScanSchedule]**](ScanSchedule.md)| Array of resources for updating all scan schedules defined in the site. Scan schedules defined in the site that are omitted from this request will be deleted from the site. | [optional] 
+ **scan_schedules** | [**list[ScanSchedule]**](ScanSchedule.md)| Array of resources for updating all scan schedules defined in the site. Scan schedules defined in the site that are omitted from this request will be deleted from the site. | [optional] 
 
 ### Return type
 
@@ -3183,7 +3183,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_scan_template**
-> Links set_site_scan_template(id, param0=param0)
+> Links set_site_scan_template(id, scan_template_id=scan_template_id)
 
 Site Scan Template
 
@@ -3193,18 +3193,18 @@ Updates the assigned scan template to the site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = 'param0_example' # str | The identifier of the scan template. (optional)
+scan_template_id = 'scan_template_id_example' # str | The identifier of the scan template. (optional)
 
 try:
     # Site Scan Template
-    api_response = api_instance.set_site_scan_template(id, param0=param0)
+    api_response = api_instance.set_site_scan_template(id, scan_template_id=scan_template_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_scan_template: %s\n" % e)
@@ -3215,7 +3215,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **str**| The identifier of the scan template. | [optional] 
+ **scan_template_id** | **str**| The identifier of the scan template. | [optional] 
 
 ### Return type
 
@@ -3233,7 +3233,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_smtp_alerts**
-> Links set_site_smtp_alerts(id, param0=param0)
+> Links set_site_smtp_alerts(id, alert=alert)
 
 Site SMTP Alerts
 
@@ -3243,18 +3243,18 @@ Updates all SMTP alerts for the specified site in a single request using the arr
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.SmtpAlert()] # list[SmtpAlert] | Array of resources for updating all SMTP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. (optional)
+alert = [rapid7vmconsole.SmtpAlert()] # list[SmtpAlert] | Array of resources for updating all SMTP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. (optional)
 
 try:
     # Site SMTP Alerts
-    api_response = api_instance.set_site_smtp_alerts(id, param0=param0)
+    api_response = api_instance.set_site_smtp_alerts(id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_smtp_alerts: %s\n" % e)
@@ -3265,7 +3265,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**list[SmtpAlert]**](SmtpAlert.md)| Array of resources for updating all SMTP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. | [optional] 
+ **alert** | [**list[SmtpAlert]**](SmtpAlert.md)| Array of resources for updating all SMTP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. | [optional] 
 
 ### Return type
 
@@ -3283,7 +3283,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_snmp_alerts**
-> Links set_site_snmp_alerts(id, param0=param0)
+> Links set_site_snmp_alerts(id, alert=alert)
 
 Site SNMP Alerts
 
@@ -3293,18 +3293,18 @@ Updates all SNMP alerts for the specified site in a single request using the arr
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.SnmpAlert()] # list[SnmpAlert] | Array of resources for updating all SNMP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. (optional)
+alert = [rapid7vmconsole.SnmpAlert()] # list[SnmpAlert] | Array of resources for updating all SNMP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. (optional)
 
 try:
     # Site SNMP Alerts
-    api_response = api_instance.set_site_snmp_alerts(id, param0=param0)
+    api_response = api_instance.set_site_snmp_alerts(id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_snmp_alerts: %s\n" % e)
@@ -3315,7 +3315,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**list[SnmpAlert]**](SnmpAlert.md)| Array of resources for updating all SNMP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. | [optional] 
+ **alert** | [**list[SnmpAlert]**](SnmpAlert.md)| Array of resources for updating all SNMP alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. | [optional] 
 
 ### Return type
 
@@ -3333,7 +3333,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_syslog_alerts**
-> Links set_site_syslog_alerts(id, param0=param0)
+> Links set_site_syslog_alerts(id, alert=alert)
 
 Site Syslog Alerts
 
@@ -3343,18 +3343,18 @@ Updates all Syslog alerts for the specified site in a single request using the a
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.SyslogAlert()] # list[SyslogAlert] | Array of resources for updating all Syslog alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. (optional)
+alert = [rapid7vmconsole.SyslogAlert()] # list[SyslogAlert] | Array of resources for updating all Syslog alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. (optional)
 
 try:
     # Site Syslog Alerts
-    api_response = api_instance.set_site_syslog_alerts(id, param0=param0)
+    api_response = api_instance.set_site_syslog_alerts(id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_syslog_alerts: %s\n" % e)
@@ -3365,7 +3365,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**list[SyslogAlert]**](SyslogAlert.md)| Array of resources for updating all Syslog alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. | [optional] 
+ **alert** | [**list[SyslogAlert]**](SyslogAlert.md)| Array of resources for updating all Syslog alerts defined in the site. Alerts defined in the site that are omitted from this request will be deleted from the site. | [optional] 
 
 ### Return type
 
@@ -3383,7 +3383,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_tags**
-> Links set_site_tags(id, param1=param1)
+> Links set_site_tags(id, tags=tags)
 
 Site Tags
 
@@ -3393,18 +3393,18 @@ Updates the site's list of tags.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | A list of tag identifiers to replace the site's tags. (optional)
+tags = [rapid7vmconsole.list[int]()] # list[int] | A list of tag identifiers to replace the site's tags. (optional)
 
 try:
     # Site Tags
-    api_response = api_instance.set_site_tags(id, param1=param1)
+    api_response = api_instance.set_site_tags(id, tags=tags)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_tags: %s\n" % e)
@@ -3415,7 +3415,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param1** | **list[int]**| A list of tag identifiers to replace the site&#39;s tags. | [optional] 
+ **tags** | **list[int]**| A list of tag identifiers to replace the site&#39;s tags. | [optional] 
 
 ### Return type
 
@@ -3433,7 +3433,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_site_users**
-> Links set_site_users(id, param0=param0)
+> Links set_site_users(id, users=users)
 
 Site Users Access
 
@@ -3443,18 +3443,18 @@ Updates the site's access list.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.list[int]()] # list[int] | A list of user identifiers to replace the site's access list. (optional)
+users = [rapid7vmconsole.list[int]()] # list[int] | A list of user identifiers to replace the site's access list. (optional)
 
 try:
     # Site Users Access
-    api_response = api_instance.set_site_users(id, param0=param0)
+    api_response = api_instance.set_site_users(id, users=users)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->set_site_users: %s\n" % e)
@@ -3465,7 +3465,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **list[int]**| A list of user identifiers to replace the site&#39;s access list. | [optional] 
+ **users** | **list[int]**| A list of user identifiers to replace the site&#39;s access list. | [optional] 
 
 ### Return type
 
@@ -3483,7 +3483,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_excluded_asset_groups**
-> Links update_excluded_asset_groups(id, param0=param0)
+> Links update_excluded_asset_groups(id, asset_group_ids=asset_group_ids)
 
 Site Excluded Asset Groups
 
@@ -3493,18 +3493,18 @@ Updates the excluded asset groups in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.list[int]()] # list[int] | Array of asset group identifiers. (optional)
+asset_group_ids = [rapid7vmconsole.list[int]()] # list[int] | Array of asset group identifiers. (optional)
 
 try:
     # Site Excluded Asset Groups
-    api_response = api_instance.update_excluded_asset_groups(id, param0=param0)
+    api_response = api_instance.update_excluded_asset_groups(id, asset_group_ids=asset_group_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_excluded_asset_groups: %s\n" % e)
@@ -3515,7 +3515,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **list[int]**| Array of asset group identifiers. | [optional] 
+ **asset_group_ids** | **list[int]**| Array of asset group identifiers. | [optional] 
 
 ### Return type
 
@@ -3533,7 +3533,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_excluded_targets**
-> Links update_excluded_targets(id, param0=param0)
+> Links update_excluded_targets(id, scan_targets=scan_targets)
 
 Site Excluded Targets
 
@@ -3543,18 +3543,18 @@ Updates the excluded targets in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.list[str]()] # list[str] | List of addresses to be the site's new excluded scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. (optional)
+scan_targets = [rapid7vmconsole.list[str]()] # list[str] | List of addresses to be the site's new excluded scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. (optional)
 
 try:
     # Site Excluded Targets
-    api_response = api_instance.update_excluded_targets(id, param0=param0)
+    api_response = api_instance.update_excluded_targets(id, scan_targets=scan_targets)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_excluded_targets: %s\n" % e)
@@ -3565,7 +3565,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **list[str]**| List of addresses to be the site&#39;s new excluded scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. | [optional] 
+ **scan_targets** | **list[str]**| List of addresses to be the site&#39;s new excluded scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. | [optional] 
 
 ### Return type
 
@@ -3583,7 +3583,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_included_asset_groups**
-> Links update_included_asset_groups(id, param0=param0)
+> Links update_included_asset_groups(id, asset_group_ids=asset_group_ids)
 
 Site Included Asset Groups
 
@@ -3593,18 +3593,18 @@ Updates the included asset groups in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.list[int]()] # list[int] | Array of asset group identifiers. (optional)
+asset_group_ids = [rapid7vmconsole.list[int]()] # list[int] | Array of asset group identifiers. (optional)
 
 try:
     # Site Included Asset Groups
-    api_response = api_instance.update_included_asset_groups(id, param0=param0)
+    api_response = api_instance.update_included_asset_groups(id, asset_group_ids=asset_group_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_included_asset_groups: %s\n" % e)
@@ -3615,7 +3615,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **list[int]**| Array of asset group identifiers. | [optional] 
+ **asset_group_ids** | **list[int]**| Array of asset group identifiers. | [optional] 
 
 ### Return type
 
@@ -3633,7 +3633,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_included_targets**
-> Links update_included_targets(id, param0=param0)
+> Links update_included_targets(id, scan_targets=scan_targets)
 
 Site Included Targets
 
@@ -3643,18 +3643,18 @@ Updates the included targets in a static site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = [swaggerNexposeClient.list[str]()] # list[str] | List of addresses to be the site's new included scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. (optional)
+scan_targets = [rapid7vmconsole.list[str]()] # list[str] | List of addresses to be the site's new included scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. (optional)
 
 try:
     # Site Included Targets
-    api_response = api_instance.update_included_targets(id, param0=param0)
+    api_response = api_instance.update_included_targets(id, scan_targets=scan_targets)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_included_targets: %s\n" % e)
@@ -3665,7 +3665,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | **list[str]**| List of addresses to be the site&#39;s new included scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. | [optional] 
+ **scan_targets** | **list[str]**| List of addresses to be the site&#39;s new included scan targets. Each address is a string that can represent either a hostname, ipv4 address, ipv4 address range, ipv6 address, or CIDR notation. | [optional] 
 
 ### Return type
 
@@ -3683,7 +3683,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_site**
-> Links update_site(id, param0=param0)
+> Links update_site(id, site=site)
 
 Site
 
@@ -3693,18 +3693,18 @@ Updates the configuration of the site with the specified identifier.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = swaggerNexposeClient.SiteUpdateResource() # SiteUpdateResource | Resource for updating a site configuration. (optional)
+site = rapid7vmconsole.SiteUpdateResource() # SiteUpdateResource | Resource for updating a site configuration. (optional)
 
 try:
     # Site
-    api_response = api_instance.update_site(id, param0=param0)
+    api_response = api_instance.update_site(id, site=site)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_site: %s\n" % e)
@@ -3715,7 +3715,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**SiteUpdateResource**](SiteUpdateResource.md)| Resource for updating a site configuration. | [optional] 
+ **site** | [**SiteUpdateResource**](SiteUpdateResource.md)| Resource for updating a site configuration. | [optional] 
 
 ### Return type
 
@@ -3733,7 +3733,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_site_credential**
-> Links update_site_credential(id, credential_id, param2=param2)
+> Links update_site_credential(id, credential_id, site_credential=site_credential)
 
 Site Scan Credential
 
@@ -3743,19 +3743,19 @@ Updates the specified site credential.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 credential_id = 56 # int | The identifier of the site credential.
-param2 = swaggerNexposeClient.SiteCredential() # SiteCredential | The specification of the site credential to update. (optional)
+site_credential = rapid7vmconsole.SiteCredential() # SiteCredential | The specification of the site credential to update. (optional)
 
 try:
     # Site Scan Credential
-    api_response = api_instance.update_site_credential(id, credential_id, param2=param2)
+    api_response = api_instance.update_site_credential(id, credential_id, site_credential=site_credential)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_site_credential: %s\n" % e)
@@ -3767,7 +3767,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
  **credential_id** | **int**| The identifier of the site credential. | 
- **param2** | [**SiteCredential**](SiteCredential.md)| The specification of the site credential to update. | [optional] 
+ **site_credential** | [**SiteCredential**](SiteCredential.md)| The specification of the site credential to update. | [optional] 
 
 ### Return type
 
@@ -3785,7 +3785,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_site_organization**
-> Links update_site_organization(id, param0=param0)
+> Links update_site_organization(id, site_organization=site_organization)
 
 Site Organization Information
 
@@ -3795,18 +3795,18 @@ Updates the site organization information.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
-param0 = swaggerNexposeClient.SiteOrganization() # SiteOrganization | Resource for updating the specified site's organization information. (optional)
+site_organization = rapid7vmconsole.SiteOrganization() # SiteOrganization | Resource for updating the specified site's organization information. (optional)
 
 try:
     # Site Organization Information
-    api_response = api_instance.update_site_organization(id, param0=param0)
+    api_response = api_instance.update_site_organization(id, site_organization=site_organization)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_site_organization: %s\n" % e)
@@ -3817,7 +3817,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param0** | [**SiteOrganization**](SiteOrganization.md)| Resource for updating the specified site&#39;s organization information. | [optional] 
+ **site_organization** | [**SiteOrganization**](SiteOrganization.md)| Resource for updating the specified site&#39;s organization information. | [optional] 
 
 ### Return type
 
@@ -3835,7 +3835,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_site_scan_schedule**
-> Links update_site_scan_schedule(id, schedule_id, param0=param0)
+> Links update_site_scan_schedule(id, schedule_id, scan_schedule=scan_schedule)
 
 Site Scan Schedule
 
@@ -3845,19 +3845,19 @@ Updates the specified scan schedule.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 schedule_id = 56 # int | The identifier of the scan schedule.
-param0 = swaggerNexposeClient.ScanSchedule() # ScanSchedule | Resource for updating the specified scan schedule. (optional)
+scan_schedule = rapid7vmconsole.ScanSchedule() # ScanSchedule | Resource for updating the specified scan schedule. (optional)
 
 try:
     # Site Scan Schedule
-    api_response = api_instance.update_site_scan_schedule(id, schedule_id, param0=param0)
+    api_response = api_instance.update_site_scan_schedule(id, schedule_id, scan_schedule=scan_schedule)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_site_scan_schedule: %s\n" % e)
@@ -3869,7 +3869,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
  **schedule_id** | **int**| The identifier of the scan schedule. | 
- **param0** | [**ScanSchedule**](ScanSchedule.md)| Resource for updating the specified scan schedule. | [optional] 
+ **scan_schedule** | [**ScanSchedule**](ScanSchedule.md)| Resource for updating the specified scan schedule. | [optional] 
 
 ### Return type
 
@@ -3887,7 +3887,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_site_smtp_alert**
-> Links update_site_smtp_alert(id, alert_id, param0=param0)
+> Links update_site_smtp_alert(id, alert_id, alert=alert)
 
 Site SMTP Alert
 
@@ -3897,19 +3897,19 @@ Updates the specified SMTP alert.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
-param0 = swaggerNexposeClient.SmtpAlert() # SmtpAlert | Resource for updating the specified SMTP alert. (optional)
+alert = rapid7vmconsole.SmtpAlert() # SmtpAlert | Resource for updating the specified SMTP alert. (optional)
 
 try:
     # Site SMTP Alert
-    api_response = api_instance.update_site_smtp_alert(id, alert_id, param0=param0)
+    api_response = api_instance.update_site_smtp_alert(id, alert_id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_site_smtp_alert: %s\n" % e)
@@ -3921,7 +3921,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
  **alert_id** | **int**| The identifier of the alert. | 
- **param0** | [**SmtpAlert**](SmtpAlert.md)| Resource for updating the specified SMTP alert. | [optional] 
+ **alert** | [**SmtpAlert**](SmtpAlert.md)| Resource for updating the specified SMTP alert. | [optional] 
 
 ### Return type
 
@@ -3939,7 +3939,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_site_snmp_alert**
-> Links update_site_snmp_alert(id, alert_id, param0=param0)
+> Links update_site_snmp_alert(id, alert_id, alert=alert)
 
 Site SNMP Alert
 
@@ -3949,19 +3949,19 @@ Updates the specified SNMP alert.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
-param0 = swaggerNexposeClient.SnmpAlert() # SnmpAlert | Resource for updating the specified SNMP alert. (optional)
+alert = rapid7vmconsole.SnmpAlert() # SnmpAlert | Resource for updating the specified SNMP alert. (optional)
 
 try:
     # Site SNMP Alert
-    api_response = api_instance.update_site_snmp_alert(id, alert_id, param0=param0)
+    api_response = api_instance.update_site_snmp_alert(id, alert_id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_site_snmp_alert: %s\n" % e)
@@ -3973,7 +3973,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
  **alert_id** | **int**| The identifier of the alert. | 
- **param0** | [**SnmpAlert**](SnmpAlert.md)| Resource for updating the specified SNMP alert. | [optional] 
+ **alert** | [**SnmpAlert**](SnmpAlert.md)| Resource for updating the specified SNMP alert. | [optional] 
 
 ### Return type
 
@@ -3991,7 +3991,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_site_syslog_alert**
-> Links update_site_syslog_alert(id, alert_id, param0=param0)
+> Links update_site_syslog_alert(id, alert_id, alert=alert)
 
 Site Syslog Alert
 
@@ -4001,19 +4001,19 @@ Updates the specified Syslog alert.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.SiteApi()
+api_instance = rapid7vmconsole.SiteApi()
 id = 56 # int | The identifier of the site.
 alert_id = 56 # int | The identifier of the alert.
-param0 = swaggerNexposeClient.SyslogAlert() # SyslogAlert | Resource for updating the specified Syslog alert. (optional)
+alert = rapid7vmconsole.SyslogAlert() # SyslogAlert | Resource for updating the specified Syslog alert. (optional)
 
 try:
     # Site Syslog Alert
-    api_response = api_instance.update_site_syslog_alert(id, alert_id, param0=param0)
+    api_response = api_instance.update_site_syslog_alert(id, alert_id, alert=alert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SiteApi->update_site_syslog_alert: %s\n" % e)
@@ -4025,7 +4025,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
  **alert_id** | **int**| The identifier of the alert. | 
- **param0** | [**SyslogAlert**](SyslogAlert.md)| Resource for updating the specified Syslog alert. | [optional] 
+ **alert** | [**SyslogAlert**](SyslogAlert.md)| Resource for updating the specified Syslog alert. | [optional] 
 
 ### Return type
 

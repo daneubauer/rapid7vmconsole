@@ -1,6 +1,6 @@
-# swaggerNexposeClient.AssetApi
+# rapid7vmconsole.AssetApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -42,12 +42,12 @@ Assigns the specified tag to the asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 tag_id = 56 # int | The identifier of the tag.
 
@@ -82,7 +82,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_asset**
-> CreatedReference create_asset(id, param1=param1)
+> CreatedReference create_asset(id, asset=asset)
 
 Assets
 
@@ -92,18 +92,18 @@ Creates or updates an asset with the specified details.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 56 # int | The identifier of the site.
-param1 = swaggerNexposeClient.AssetCreate() # AssetCreate | The details of the asset being added or updated.  The operating system can be specified in one of three ways, with the order of precedence: `\"osFingerprint\"`, `\"os\"`, `\"cpe\"` (optional)
+asset = rapid7vmconsole.AssetCreate() # AssetCreate | The details of the asset being added or updated.  The operating system can be specified in one of three ways, with the order of precedence: `\"osFingerprint\"`, `\"os\"`, `\"cpe\"` (optional)
 
 try:
     # Assets
-    api_response = api_instance.create_asset(id, param1=param1)
+    api_response = api_instance.create_asset(id, asset=asset)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetApi->create_asset: %s\n" % e)
@@ -114,7 +114,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param1** | [**AssetCreate**](AssetCreate.md)| The details of the asset being added or updated.  The operating system can be specified in one of three ways, with the order of precedence: &#x60;\&quot;osFingerprint\&quot;&#x60;, &#x60;\&quot;os\&quot;&#x60;, &#x60;\&quot;cpe\&quot;&#x60; | [optional] 
+ **asset** | [**AssetCreate**](AssetCreate.md)| The details of the asset being added or updated.  The operating system can be specified in one of three ways, with the order of precedence: &#x60;\&quot;osFingerprint\&quot;&#x60;, &#x60;\&quot;os\&quot;&#x60;, &#x60;\&quot;cpe\&quot;&#x60; | [optional] 
 
 ### Return type
 
@@ -142,12 +142,12 @@ Deletes the specified asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -190,13 +190,13 @@ Returns all assets for which you have access that match the given search criteri
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
-param1 = swaggerNexposeClient.SearchCriteria() # SearchCriteria | param1
+api_instance = rapid7vmconsole.AssetApi()
+param1 = rapid7vmconsole.SearchCriteria() # SearchCriteria | param1
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
 sort = ['sort_example'] # list[str] | The criteria to sort the records by, in the format: `property[,ASC|DESC]`. The default sort order is ascending. Multiple sort criteria can be specified using multiple sort query parameters. (optional)
@@ -244,12 +244,12 @@ Returns the specified asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -292,12 +292,12 @@ Returns the databases enumerated on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -340,12 +340,12 @@ Returns the files discovered on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -388,12 +388,12 @@ Returns the service running a port and protocol on the asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 protocol = 'protocol_example' # str | The protocol of the service.
 port = 56 # int | The port of the service.
@@ -440,12 +440,12 @@ Returns the configuration (properties) of a port and protocol on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 protocol = 'protocol_example' # str | The protocol of the service.
 port = 56 # int | The port of the service.
@@ -492,12 +492,12 @@ Returns the databases running on a port and protocol on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 protocol = 'protocol_example' # str | The protocol of the service.
 port = 56 # int | The port of the service.
@@ -544,12 +544,12 @@ Returns the user groups enumerated on a port and protocol on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 protocol = 'protocol_example' # str | The protocol of the service.
 port = 56 # int | The port of the service.
@@ -596,12 +596,12 @@ Returns the users enumerated on a port and protocol on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 protocol = 'protocol_example' # str | The protocol of the service.
 port = 56 # int | The port of the service.
@@ -648,12 +648,12 @@ Returns a web application running on a port and protocol on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 protocol = 'protocol_example' # str | The protocol of the service.
 port = 56 # int | The port of the service.
@@ -702,12 +702,12 @@ Returns the web applications running on a port and protocol on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 protocol = 'protocol_example' # str | The protocol of the service.
 port = 56 # int | The port of the service.
@@ -754,12 +754,12 @@ Returns the services discovered on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -802,12 +802,12 @@ Returns the software on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -850,12 +850,12 @@ Returns tags assigned to an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -898,12 +898,12 @@ Returns user groups enumerated on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -946,12 +946,12 @@ Returns users enumerated on an asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 
 try:
@@ -994,12 +994,12 @@ Returns all assets for which you have access.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
 sort = ['sort_example'] # list[str] | The criteria to sort the records by, in the format: `property[,ASC|DESC]`. The default sort order is ascending. Multiple sort criteria can be specified using multiple sort query parameters. (optional)
@@ -1046,12 +1046,12 @@ Returns the details for an operating system.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the operating system.
 
 try:
@@ -1094,12 +1094,12 @@ Returns all operating systems discovered across all assets.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
 sort = ['sort_example'] # list[str] | The criteria to sort the records by, in the format: `property[,ASC|DESC]`. The default sort order is ascending. Multiple sort criteria can be specified using multiple sort query parameters. (optional)
@@ -1146,12 +1146,12 @@ Returns the details for software.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the software.
 
 try:
@@ -1194,12 +1194,12 @@ Returns all software enumerated on any asset.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
 sort = ['sort_example'] # list[str] | The criteria to sort the records by, in the format: `property[,ASC|DESC]`. The default sort order is ascending. Multiple sort criteria can be specified using multiple sort query parameters. (optional)
@@ -1246,12 +1246,12 @@ Removes the specified tag from the asset's tags.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetApi()
+api_instance = rapid7vmconsole.AssetApi()
 id = 789 # int | The identifier of the asset.
 tag_id = 56 # int | The identifier of the tag.
 

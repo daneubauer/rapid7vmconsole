@@ -1,6 +1,6 @@
-# swaggerNexposeClient.ScanApi
+# rapid7vmconsole.ScanApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,12 +22,12 @@ Returns the specified scan.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanApi()
+api_instance = rapid7vmconsole.ScanApi()
 id = 789 # int | The identifier of the scan.
 
 try:
@@ -70,12 +70,12 @@ Returns all scans.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanApi()
+api_instance = rapid7vmconsole.ScanApi()
 active = false # bool | Return running scans or past scans (true/false value). (optional) (default to false)
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
@@ -124,12 +124,12 @@ Returns the scans for the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanApi()
+api_instance = rapid7vmconsole.ScanApi()
 id = 56 # int | The identifier of the site.
 active = false # bool | Return running scans or past scans (true/false value). (optional) (default to false)
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
@@ -180,12 +180,12 @@ Updates the scan status. Can pause, resume, and stop scans using this resource. 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanApi()
+api_instance = rapid7vmconsole.ScanApi()
 id = 789 # int | The identifier of the scan.
 status = 'status_example' # str | The status of the scan.
 
@@ -220,7 +220,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_scan**
-> CreatedReferenceScanIDLink start_scan(id, param1=param1)
+> CreatedReferenceScanIDLink start_scan(id, override_blackout=override_blackout, scan=scan)
 
 Site Scans
 
@@ -230,18 +230,19 @@ Starts a scan for the specified site.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanApi()
+api_instance = rapid7vmconsole.ScanApi()
 id = 56 # int | The identifier of the site.
-param1 = swaggerNexposeClient.AdhocScan() # AdhocScan | The details for the scan. (optional)
+override_blackout = false # bool | ${override.blackout} (optional) (default to false)
+scan = rapid7vmconsole.AdhocScan() # AdhocScan | The details for the scan. (optional)
 
 try:
     # Site Scans
-    api_response = api_instance.start_scan(id, param1=param1)
+    api_response = api_instance.start_scan(id, override_blackout=override_blackout, scan=scan)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanApi->start_scan: %s\n" % e)
@@ -252,7 +253,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the site. | 
- **param1** | [**AdhocScan**](AdhocScan.md)| The details for the scan. | [optional] 
+ **override_blackout** | **bool**| ${override.blackout} | [optional] [default to false]
+ **scan** | [**AdhocScan**](AdhocScan.md)| The details for the scan. | [optional] 
 
 ### Return type
 

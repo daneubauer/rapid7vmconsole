@@ -1,6 +1,6 @@
-# swaggerNexposeClient.AssetDiscoveryApi
+# rapid7vmconsole.AssetDiscoveryApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_sonar_query**
-> CreatedReferenceDiscoveryQueryIDLink create_sonar_query(param0)
+> CreatedReferenceDiscoveryQueryIDLink create_sonar_query(query=query)
 
 Sonar Queries
 
@@ -27,17 +27,17 @@ Creates a sonar query.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
-param0 = swaggerNexposeClient.SonarQuery() # SonarQuery | param0
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
+query = rapid7vmconsole.SonarQuery() # SonarQuery | The criteria for a Sonar query. (optional)
 
 try:
     # Sonar Queries
-    api_response = api_instance.create_sonar_query(param0)
+    api_response = api_instance.create_sonar_query(query=query)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetDiscoveryApi->create_sonar_query: %s\n" % e)
@@ -47,7 +47,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**SonarQuery**](SonarQuery.md)| param0 | 
+ **query** | [**SonarQuery**](SonarQuery.md)| The criteria for a Sonar query. | [optional] 
 
 ### Return type
 
@@ -75,12 +75,12 @@ Removes a sonar query.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 id = 789 # int | The identifier of the Sonar query.
 
 try:
@@ -123,12 +123,12 @@ Returns a discovery connection.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 id = 789 # int | The identifier of the discovery connection.
 
 try:
@@ -171,12 +171,12 @@ Returns all discovery connections.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
 sort = ['sort_example'] # list[str] | The criteria to sort the records by, in the format: `property[,ASC|DESC]`. The default sort order is ascending. Multiple sort criteria can be specified using multiple sort query parameters. (optional)
@@ -223,12 +223,12 @@ Returns all sonar queries.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 
 try:
     # Sonar Queries
@@ -267,12 +267,12 @@ Returns a sonar query.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 id = 789 # int | The identifier of the Sonar query.
 
 try:
@@ -315,12 +315,12 @@ Returns the assets that are discovered by a Sonar query.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 id = 789 # int | The identifier of the Sonar query.
 
 try:
@@ -363,12 +363,12 @@ Attempts to reconnect the discovery connection.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 id = 789 # int | The identifier of the discovery connection.
 
 try:
@@ -400,7 +400,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sonar_query_search**
-> list[DiscoveryAsset] sonar_query_search(param0)
+> list[DiscoveryAsset] sonar_query_search(query=query)
 
 Sonar Query Search
 
@@ -410,17 +410,17 @@ Executes a Sonar query to discover assets with the given search criteria.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
-param0 = swaggerNexposeClient.SonarCriteria() # SonarCriteria | param0
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
+query = rapid7vmconsole.SonarCriteria() # SonarCriteria | The criteria for a Sonar query. (optional)
 
 try:
     # Sonar Query Search
-    api_response = api_instance.sonar_query_search(param0)
+    api_response = api_instance.sonar_query_search(query=query)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetDiscoveryApi->sonar_query_search: %s\n" % e)
@@ -430,7 +430,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**SonarCriteria**](SonarCriteria.md)| param0 | 
+ **query** | [**SonarCriteria**](SonarCriteria.md)| The criteria for a Sonar query. | [optional] 
 
 ### Return type
 
@@ -448,7 +448,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_sonar_query**
-> Links update_sonar_query(id, param1)
+> Links update_sonar_query(id, query=query)
 
 Sonar Query
 
@@ -458,18 +458,18 @@ Updates a sonar query.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetDiscoveryApi()
+api_instance = rapid7vmconsole.AssetDiscoveryApi()
 id = 789 # int | The identifier of the Sonar query.
-param1 = swaggerNexposeClient.SonarQuery() # SonarQuery | param1
+query = rapid7vmconsole.SonarQuery() # SonarQuery | The criteria for a Sonar query. (optional)
 
 try:
     # Sonar Query
-    api_response = api_instance.update_sonar_query(id, param1)
+    api_response = api_instance.update_sonar_query(id, query=query)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetDiscoveryApi->update_sonar_query: %s\n" % e)
@@ -480,7 +480,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the Sonar query. | 
- **param1** | [**SonarQuery**](SonarQuery.md)| param1 | 
+ **query** | [**SonarQuery**](SonarQuery.md)| The criteria for a Sonar query. | [optional] 
 
 ### Return type
 

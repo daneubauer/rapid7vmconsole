@@ -1,6 +1,6 @@
-# swaggerNexposeClient.AssetGroupApi
+# rapid7vmconsole.AssetGroupApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,12 +38,12 @@ Adds a tag to an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 tag_id = 56 # int | The identifier of the tag.
 
@@ -88,12 +88,12 @@ Grants a user with sufficient privileges access to the asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 user_id = 56 # int | The identifier of the user.
 
@@ -138,12 +138,12 @@ Adds an asset to a static asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 asset_id = 789 # int | The identifier of the asset.
 
@@ -178,7 +178,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_asset_group**
-> CreatedReferenceAssetGroupIDLink create_asset_group(param0=param0)
+> CreatedReferenceAssetGroupIDLink create_asset_group(asset_group=asset_group)
 
 Asset Groups
 
@@ -188,17 +188,17 @@ Creates a new asset group. The `searchCriteria` field can be passed no matter wh
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
-param0 = swaggerNexposeClient.AssetGroup() # AssetGroup | The details of the asset group. (optional)
+api_instance = rapid7vmconsole.AssetGroupApi()
+asset_group = rapid7vmconsole.AssetGroup() # AssetGroup | The details of the asset group. (optional)
 
 try:
     # Asset Groups
-    api_response = api_instance.create_asset_group(param0=param0)
+    api_response = api_instance.create_asset_group(asset_group=asset_group)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetGroupApi->create_asset_group: %s\n" % e)
@@ -208,7 +208,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**AssetGroup**](AssetGroup.md)| The details of the asset group. | [optional] 
+ **asset_group** | [**AssetGroup**](AssetGroup.md)| The details of the asset group. | [optional] 
 
 ### Return type
 
@@ -236,12 +236,12 @@ Deletes the asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -284,12 +284,12 @@ Returns an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -332,12 +332,12 @@ Returns hypermedia links for the assets that belong to an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -380,12 +380,12 @@ Returns the search criteria of a dynamic asset group.For a reference of valid se
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -428,12 +428,12 @@ Returns the tags assigned to an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -476,12 +476,12 @@ Returns hypermedia links for the users with access to this asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -524,12 +524,12 @@ Returns all asset groups.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 type = 'type_example' # str | The type of asset group. (optional)
 name = 'name_example' # str | A search pattern for the name of the asset group. Searches are case-insensitive contains. (optional)
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
@@ -580,12 +580,12 @@ Removes all tag associations from the asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -628,12 +628,12 @@ Removes the assets from the given static asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 
 try:
@@ -676,12 +676,12 @@ Removes an asset from an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 asset_id = 789 # int | The identifier of the asset.
 
@@ -726,12 +726,12 @@ Removes a tag from an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 tag_id = 56 # int | The identifier of the tag.
 
@@ -776,12 +776,12 @@ Removes a user's access from an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
 user_id = 56 # int | The identifier of the user.
 
@@ -816,7 +816,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_asset_group_search_criteria**
-> Links set_asset_group_search_criteria(id, param1=param1)
+> Links set_asset_group_search_criteria(id, criteria=criteria)
 
 Asset Group Search Criteria
 
@@ -826,18 +826,18 @@ Updates the search criteria of a dynamic asset group. For a reference of valid s
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
-param1 = swaggerNexposeClient.SearchCriteria() # SearchCriteria | The search criteria specification. (optional)
+criteria = rapid7vmconsole.SearchCriteria() # SearchCriteria | The search criteria specification. (optional)
 
 try:
     # Asset Group Search Criteria
-    api_response = api_instance.set_asset_group_search_criteria(id, param1=param1)
+    api_response = api_instance.set_asset_group_search_criteria(id, criteria=criteria)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetGroupApi->set_asset_group_search_criteria: %s\n" % e)
@@ -848,7 +848,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the asset group. | 
- **param1** | [**SearchCriteria**](SearchCriteria.md)| The search criteria specification. | [optional] 
+ **criteria** | [**SearchCriteria**](SearchCriteria.md)| The search criteria specification. | [optional] 
 
 ### Return type
 
@@ -866,7 +866,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_asset_group_tags**
-> Links set_asset_group_tags(id, param1=param1)
+> Links set_asset_group_tags(id, tags=tags)
 
 Asset Group Tags
 
@@ -876,18 +876,18 @@ Updates the tags of an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The tags to associate to the asset group. (optional)
+tags = [rapid7vmconsole.list[int]()] # list[int] | The tags to associate to the asset group. (optional)
 
 try:
     # Asset Group Tags
-    api_response = api_instance.set_asset_group_tags(id, param1=param1)
+    api_response = api_instance.set_asset_group_tags(id, tags=tags)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetGroupApi->set_asset_group_tags: %s\n" % e)
@@ -898,7 +898,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the asset group. | 
- **param1** | **list[int]**| The tags to associate to the asset group. | [optional] 
+ **tags** | **list[int]**| The tags to associate to the asset group. | [optional] 
 
 ### Return type
 
@@ -916,7 +916,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_asset_group_users**
-> Links set_asset_group_users(id, param1=param1)
+> Links set_asset_group_users(id, users=users)
 
 Asset Group Users
 
@@ -926,18 +926,18 @@ Grants users with sufficient privileges access to an asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The users to grant access to the asset group. (optional)
+users = [rapid7vmconsole.list[int]()] # list[int] | The users to grant access to the asset group. (optional)
 
 try:
     # Asset Group Users
-    api_response = api_instance.set_asset_group_users(id, param1=param1)
+    api_response = api_instance.set_asset_group_users(id, users=users)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetGroupApi->set_asset_group_users: %s\n" % e)
@@ -948,7 +948,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the asset group. | 
- **param1** | **list[int]**| The users to grant access to the asset group. | [optional] 
+ **users** | **list[int]**| The users to grant access to the asset group. | [optional] 
 
 ### Return type
 
@@ -966,7 +966,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_asset_group**
-> Links update_asset_group(id, param1=param1)
+> Links update_asset_group(id, asset_group=asset_group)
 
 Asset Group
 
@@ -976,18 +976,18 @@ Updates the details of an asset group. See the search criteria endpoint (/search
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
-param1 = swaggerNexposeClient.AssetGroup() # AssetGroup | The details of the asset group. (optional)
+asset_group = rapid7vmconsole.AssetGroup() # AssetGroup | The details of the asset group. (optional)
 
 try:
     # Asset Group
-    api_response = api_instance.update_asset_group(id, param1=param1)
+    api_response = api_instance.update_asset_group(id, asset_group=asset_group)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetGroupApi->update_asset_group: %s\n" % e)
@@ -998,7 +998,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the asset group. | 
- **param1** | [**AssetGroup**](AssetGroup.md)| The details of the asset group. | [optional] 
+ **asset_group** | [**AssetGroup**](AssetGroup.md)| The details of the asset group. | [optional] 
 
 ### Return type
 
@@ -1016,7 +1016,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_asset_group_assets**
-> Links update_asset_group_assets(id, param1=param1)
+> Links update_asset_group_assets(id, assets=assets)
 
 Asset Group Assets
 
@@ -1026,18 +1026,18 @@ Updates all the assets that belong to a static asset group.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.AssetGroupApi()
+api_instance = rapid7vmconsole.AssetGroupApi()
 id = 56 # int | The identifier of the asset group.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The assets to place in the asset group.  (optional)
+assets = [rapid7vmconsole.list[int]()] # list[int] | The assets to place in the asset group.  (optional)
 
 try:
     # Asset Group Assets
-    api_response = api_instance.update_asset_group_assets(id, param1=param1)
+    api_response = api_instance.update_asset_group_assets(id, assets=assets)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AssetGroupApi->update_asset_group_assets: %s\n" % e)
@@ -1048,7 +1048,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the asset group. | 
- **param1** | **list[int]**| The assets to place in the asset group.  | [optional] 
+ **assets** | **list[int]**| The assets to place in the asset group.  | [optional] 
 
 ### Return type
 

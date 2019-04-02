@@ -1,14 +1,18 @@
-# swaggerNexposeClient.ScanEngineApi
+# rapid7vmconsole.ScanEngineApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_scan_engine_pool_scan_engine**](ScanEngineApi.md#add_scan_engine_pool_scan_engine) | **PUT** /api/3/scan_engine_pools/{id}/engines/{engineId} | Engine Pool Engines
 [**create_scan_engine**](ScanEngineApi.md#create_scan_engine) | **POST** /api/3/scan_engines | Scan Engines
 [**create_scan_engine_pool**](ScanEngineApi.md#create_scan_engine_pool) | **POST** /api/3/scan_engine_pools | Engine Pools
+[**create_shared_secret**](ScanEngineApi.md#create_shared_secret) | **POST** /api/3/scan_engines/shared_secret | Scan Engine Shared Secret
 [**delete_scan_engine**](ScanEngineApi.md#delete_scan_engine) | **DELETE** /api/3/scan_engines/{id} | Scan Engine
+[**delete_shared_secret**](ScanEngineApi.md#delete_shared_secret) | **DELETE** /api/3/scan_engines/shared_secret | Scan Engine Shared Secret
 [**get_assigned_engine_pools**](ScanEngineApi.md#get_assigned_engine_pools) | **GET** /api/3/scan_engines/{id}/scan_engine_pools | Assigned Engine Pools
+[**get_current_shared_secret**](ScanEngineApi.md#get_current_shared_secret) | **GET** /api/3/scan_engines/shared_secret | Scan Engine Shared Secret
+[**get_current_shared_secret_time_to_live**](ScanEngineApi.md#get_current_shared_secret_time_to_live) | **GET** /api/3/scan_engines/shared_secret/time_to_live | Scan Engine Shared Secret Time to live
 [**get_engine_pool**](ScanEngineApi.md#get_engine_pool) | **GET** /api/3/scan_engine_pools/{id} | Engine Pool
 [**get_scan_engine**](ScanEngineApi.md#get_scan_engine) | **GET** /api/3/scan_engines/{id} | Scan Engine
 [**get_scan_engine_pool_scan_engines**](ScanEngineApi.md#get_scan_engine_pool_scan_engines) | **GET** /api/3/scan_engine_pools/{id}/engines | Engine Pool Engines
@@ -35,12 +39,12 @@ Add an engine to the engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
 engine_id = 56 # int | The identifier of the scan engine.
 
@@ -75,7 +79,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_scan_engine**
-> ReferenceWithEngineIDLink create_scan_engine(param0=param0)
+> ReferenceWithEngineIDLink create_scan_engine(scan_engine=scan_engine)
 
 Scan Engines
 
@@ -85,17 +89,17 @@ Creates a new scan engine.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
-param0 = swaggerNexposeClient.ScanEngine() # ScanEngine | The specification of a scan engine. (optional)
+api_instance = rapid7vmconsole.ScanEngineApi()
+scan_engine = rapid7vmconsole.ScanEngine() # ScanEngine | The specification of a scan engine. (optional)
 
 try:
     # Scan Engines
-    api_response = api_instance.create_scan_engine(param0=param0)
+    api_response = api_instance.create_scan_engine(scan_engine=scan_engine)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanEngineApi->create_scan_engine: %s\n" % e)
@@ -105,7 +109,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**ScanEngine**](ScanEngine.md)| The specification of a scan engine. | [optional] 
+ **scan_engine** | [**ScanEngine**](ScanEngine.md)| The specification of a scan engine. | [optional] 
 
 ### Return type
 
@@ -123,7 +127,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_scan_engine_pool**
-> CreatedReferenceEngineIDLink create_scan_engine_pool(param0=param0)
+> CreatedReferenceEngineIDLink create_scan_engine_pool(engine_pool=engine_pool)
 
 Engine Pools
 
@@ -133,17 +137,17 @@ Creates a new engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
-param0 = swaggerNexposeClient.EnginePool() # EnginePool | The details for the scan engine to update. (optional)
+api_instance = rapid7vmconsole.ScanEngineApi()
+engine_pool = rapid7vmconsole.EnginePool() # EnginePool | The details for the scan engine to update. (optional)
 
 try:
     # Engine Pools
-    api_response = api_instance.create_scan_engine_pool(param0=param0)
+    api_response = api_instance.create_scan_engine_pool(engine_pool=engine_pool)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanEngineApi->create_scan_engine_pool: %s\n" % e)
@@ -153,11 +157,55 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**EnginePool**](EnginePool.md)| The details for the scan engine to update. | [optional] 
+ **engine_pool** | [**EnginePool**](EnginePool.md)| The details for the scan engine to update. | [optional] 
 
 ### Return type
 
 [**CreatedReferenceEngineIDLink**](CreatedReferenceEngineIDLink.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_shared_secret**
+> str create_shared_secret()
+
+Scan Engine Shared Secret
+
+Returns the current valid shared secret or generates a new shared secret. The endpoint returns an existing shared secret if one was previously generated and it has not yet expired. Conversely, the endpoint will generate and return a new shared secret for either of the following conditions: a shared secret was not previously generated or the previously-generated shared secret has expired. The shared secret is valid for 60 minutes from the moment it is generated.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = rapid7vmconsole.ScanEngineApi()
+
+try:
+    # Scan Engine Shared Secret
+    api_response = api_instance.create_shared_secret()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ScanEngineApi->create_shared_secret: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**str**
 
 ### Authorization
 
@@ -181,12 +229,12 @@ Deletes the specified scan engine.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the scan engine.
 
 try:
@@ -218,6 +266,50 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_shared_secret**
+> Links delete_shared_secret()
+
+Scan Engine Shared Secret
+
+Revokes the current valid shared secret, if one exists.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = rapid7vmconsole.ScanEngineApi()
+
+try:
+    # Scan Engine Shared Secret
+    api_response = api_instance.delete_shared_secret()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ScanEngineApi->delete_shared_secret: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Links**](Links.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_assigned_engine_pools**
 > ResourcesEnginePool get_assigned_engine_pools(id)
 
@@ -229,12 +321,12 @@ Retrieves the list of engine pools the scan engine is currently assigned to.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the scan engine.
 
 try:
@@ -266,6 +358,94 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_current_shared_secret**
+> str get_current_shared_secret()
+
+Scan Engine Shared Secret
+
+Returns the current valid shared secret, if one has been previously generated and it has not yet expired; otherwise the endpoint will respond with a 404 status code. Use this endpoint to detect whether a previously-generated shared secret is still valid.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = rapid7vmconsole.ScanEngineApi()
+
+try:
+    # Scan Engine Shared Secret
+    api_response = api_instance.get_current_shared_secret()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ScanEngineApi->get_current_shared_secret: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**str**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_current_shared_secret_time_to_live**
+> int get_current_shared_secret_time_to_live()
+
+Scan Engine Shared Secret Time to live
+
+Returns the number of seconds remaining for the current shared secret before it expires, if one has been previously generated and it has not yet expired; otherwise the endpoint will respond with a 404 status code.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = rapid7vmconsole.ScanEngineApi()
+
+try:
+    # Scan Engine Shared Secret Time to live
+    api_response = api_instance.get_current_shared_secret_time_to_live()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ScanEngineApi->get_current_shared_secret_time_to_live: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**int**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_engine_pool**
 > EnginePool get_engine_pool(id)
 
@@ -277,12 +457,12 @@ Retrieves the details for an engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
 
 try:
@@ -325,12 +505,12 @@ Retrieves the details for a scan engine.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the scan engine.
 
 try:
@@ -373,12 +553,12 @@ Get the engines in the engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
 
 try:
@@ -421,12 +601,12 @@ Returns links to the sites associated with this engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
 
 try:
@@ -469,12 +649,12 @@ Returns engine pools available to use for scanning.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 
 try:
     # Engine Pools
@@ -513,12 +693,12 @@ Returns the scans that have been run on a scan engine.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the scan engine.
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
@@ -567,12 +747,12 @@ Retrieves the list of sites the specified scan engine is assigned to.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the scan engine.
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
@@ -621,12 +801,12 @@ Returns scan engines available to use for scanning.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 
 try:
     # Scan Engines
@@ -665,12 +845,12 @@ Deletes the specified engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
 
 try:
@@ -713,12 +893,12 @@ Remove the specified engine from the engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
 engine_id = 56 # int | The identifier of the scan engine.
 
@@ -753,7 +933,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_scan_engine_pool_scan_engines**
-> Links set_scan_engine_pool_scan_engines(id, param1=param1)
+> Links set_scan_engine_pool_scan_engines(id, engines=engines)
 
 Engine Pool Engines
 
@@ -763,18 +943,18 @@ Set the engines in the engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The identifiers of the scan engines to place into the engine pool. (optional)
+engines = [rapid7vmconsole.list[int]()] # list[int] | The identifiers of the scan engines to place into the engine pool. (optional)
 
 try:
     # Engine Pool Engines
-    api_response = api_instance.set_scan_engine_pool_scan_engines(id, param1=param1)
+    api_response = api_instance.set_scan_engine_pool_scan_engines(id, engines=engines)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanEngineApi->set_scan_engine_pool_scan_engines: %s\n" % e)
@@ -785,7 +965,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the engine pool. | 
- **param1** | **list[int]**| The identifiers of the scan engines to place into the engine pool. | [optional] 
+ **engines** | **list[int]**| The identifiers of the scan engines to place into the engine pool. | [optional] 
 
 ### Return type
 
@@ -803,7 +983,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_scan_engine**
-> Links update_scan_engine(id, param1=param1)
+> Links update_scan_engine(id, scan_engine=scan_engine)
 
 Scan Engine
 
@@ -813,18 +993,18 @@ Updates the specified scan engine.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the scan engine.
-param1 = swaggerNexposeClient.ScanEngine() # ScanEngine | The specification of the scan engine to update. (optional)
+scan_engine = rapid7vmconsole.ScanEngine() # ScanEngine | The specification of the scan engine to update. (optional)
 
 try:
     # Scan Engine
-    api_response = api_instance.update_scan_engine(id, param1=param1)
+    api_response = api_instance.update_scan_engine(id, scan_engine=scan_engine)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanEngineApi->update_scan_engine: %s\n" % e)
@@ -835,7 +1015,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the scan engine. | 
- **param1** | [**ScanEngine**](ScanEngine.md)| The specification of the scan engine to update. | [optional] 
+ **scan_engine** | [**ScanEngine**](ScanEngine.md)| The specification of the scan engine to update. | [optional] 
 
 ### Return type
 
@@ -853,7 +1033,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_scan_engine_pool**
-> Links update_scan_engine_pool(id, param1=param1)
+> Links update_scan_engine_pool(id, engine_pool=engine_pool)
 
 Engine Pool
 
@@ -863,18 +1043,18 @@ Updates the specified engine pool.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.ScanEngineApi()
+api_instance = rapid7vmconsole.ScanEngineApi()
 id = 56 # int | The identifier of the engine pool.
-param1 = swaggerNexposeClient.EnginePool() # EnginePool | The details for the scan engine to update. (optional)
+engine_pool = rapid7vmconsole.EnginePool() # EnginePool | The details for the scan engine to update. (optional)
 
 try:
     # Engine Pool
-    api_response = api_instance.update_scan_engine_pool(id, param1=param1)
+    api_response = api_instance.update_scan_engine_pool(id, engine_pool=engine_pool)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ScanEngineApi->update_scan_engine_pool: %s\n" % e)
@@ -885,7 +1065,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the engine pool. | 
- **param1** | [**EnginePool**](EnginePool.md)| The details for the scan engine to update. | [optional] 
+ **engine_pool** | [**EnginePool**](EnginePool.md)| The details for the scan engine to update. | [optional] 
 
 ### Return type
 

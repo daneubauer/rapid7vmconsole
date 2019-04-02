@@ -1,6 +1,6 @@
-# swaggerNexposeClient.UserApi
+# rapid7vmconsole.UserApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**add_user_site**](UserApi.md#add_user_site) | **PUT** /api/3/users/{id}/sites/{siteId} | Site Access
 [**create_user**](UserApi.md#create_user) | **POST** /api/3/users | Users
 [**delete_role**](UserApi.md#delete_role) | **DELETE** /api/3/roles/{id} | Role
+[**delete_user**](UserApi.md#delete_user) | **DELETE** /api/3/users/{id} | User
 [**get_authentication_source**](UserApi.md#get_authentication_source) | **GET** /api/3/authentication_sources/{id} | Authentication Source
 [**get_authentication_source_users**](UserApi.md#get_authentication_source_users) | **GET** /api/3/authentication_sources/{id}/users | Authentication Source Users
 [**get_authentication_sources**](UserApi.md#get_authentication_sources) | **GET** /api/3/authentication_sources | Authentication Sources
@@ -48,12 +49,12 @@ Grants the user access to the asset group. Individual asset group access cannot 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 asset_group_id = 56 # int | The identifier of the asset group.
 
@@ -98,12 +99,12 @@ Grants the user access to the site. Individual site access cannot be granted to 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 site_id = 56 # int | The identifier of the site.
 
@@ -138,7 +139,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_user**
-> CreatedReferenceUserIDLink create_user(param0=param0)
+> CreatedReferenceUserIDLink create_user(user=user)
 
 Users
 
@@ -148,17 +149,17 @@ Creates a new user. <span class=\"authorization\">Global Administrator</span>
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
-param0 = swaggerNexposeClient.User() # User | The details of the user. (optional)
+api_instance = rapid7vmconsole.UserApi()
+user = rapid7vmconsole.UserEdit() # UserEdit | The details of the user. (optional)
 
 try:
     # Users
-    api_response = api_instance.create_user(param0=param0)
+    api_response = api_instance.create_user(user=user)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->create_user: %s\n" % e)
@@ -168,7 +169,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**User**](User.md)| The details of the user. | [optional] 
+ **user** | [**UserEdit**](UserEdit.md)| The details of the user. | [optional] 
 
 ### Return type
 
@@ -196,12 +197,12 @@ Removes a role with the specified identifier. The role must not be built-in and 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 'id_example' # str | The identifier of the role.
 
 try:
@@ -233,6 +234,54 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_user**
+> Links delete_user(id)
+
+User
+
+Deletes a user account.<span class=\"authorization\">Global Administrator</span>
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = rapid7vmconsole.UserApi()
+id = 56 # int | The identifier of the user.
+
+try:
+    # User
+    api_response = api_instance.delete_user(id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserApi->delete_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The identifier of the user. | 
+
+### Return type
+
+[**Links**](Links.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_authentication_source**
 > AuthenticationSource get_authentication_source(id)
 
@@ -244,12 +293,12 @@ Returns the details for an authentication source.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the authentication source.
 
 try:
@@ -292,12 +341,12 @@ Returns hypermedia links for the user accounts that use the authentication sourc
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the authentication source.
 
 try:
@@ -340,12 +389,12 @@ Returns all available sources of authentication for users.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 
 try:
     # Authentication Sources
@@ -384,12 +433,12 @@ Returns the details for a privilege.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 'id_example' # str | The identifier of the privilege.
 
 try:
@@ -432,12 +481,12 @@ Returns all privileges that may be granted to a role.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 
 try:
     # Privileges
@@ -476,12 +525,12 @@ Retrieves the details of a role.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 'id_example' # str | The identifier of the role.
 
 try:
@@ -524,12 +573,12 @@ Returns hypermedia links for the the users currently assigned a role.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 'id_example' # str | The identifier of the role.
 
 try:
@@ -572,12 +621,12 @@ Returns all roles for which users may be assigned.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 
 try:
     # Roles
@@ -616,12 +665,12 @@ Retrieves the current authentication token seed (key) for the user, if configure
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -664,12 +713,12 @@ Returns the details for a user.<span class=\"authorization\">Global Administrato
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -712,12 +761,12 @@ Returns the asset groups to which the user has access.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -760,12 +809,12 @@ Returns the privileges granted to the user by their role. <span class=\"authoriz
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -808,12 +857,12 @@ Returns the sites to which the user has access.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -856,12 +905,12 @@ Returns all defined users. <span class=\"authorization\">Global Administrator</s
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
 size = 10 # int | The number of records per page to retrieve. (optional) (default to 10)
 sort = ['sort_example'] # list[str] | The criteria to sort the records by, in the format: `property[,ASC|DESC]`. The default sort order is ascending. Multiple sort criteria can be specified using multiple sort query parameters. (optional)
@@ -908,12 +957,12 @@ Returns hypermedia links for all users granted the specified privilege by their 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 'id_example' # str | The identifier of the privilege.
 
 try:
@@ -956,12 +1005,12 @@ Regenerates a new authentication token seed (key) and updates it for the user. T
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -1004,12 +1053,12 @@ Revokes access to all asset groups from the user.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -1052,12 +1101,12 @@ Revokes access to all sites from the user.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -1100,12 +1149,12 @@ Grants the user access to the asset group. Individual asset group access cannot 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 asset_group_id = 56 # int | The identifier of the asset group.
 
@@ -1150,12 +1199,12 @@ Grants the user access to the site. Individual site access cannot be granted to 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 site_id = 56 # int | The identifier of the site.
 
@@ -1190,7 +1239,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_password**
-> Links reset_password(id, param1=param1)
+> Links reset_password(id, password=password)
 
 Password Reset
 
@@ -1200,18 +1249,18 @@ Changes the password for the user. Users may only change their own password.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
-param1 = 'param1_example' # str | The new password to set. (optional)
+password = 'password_example' # str | The new password to set. (optional)
 
 try:
     # Password Reset
-    api_response = api_instance.reset_password(id, param1=param1)
+    api_response = api_instance.reset_password(id, password=password)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->reset_password: %s\n" % e)
@@ -1222,7 +1271,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the user. | 
- **param1** | **str**| The new password to set. | [optional] 
+ **password** | **str**| The new password to set. | [optional] 
 
 ### Return type
 
@@ -1240,7 +1289,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_two_factor_authentication**
-> Links set_two_factor_authentication(id, param1=param1)
+> Links set_two_factor_authentication(id, token=token)
 
 Two-Factor Authentication
 
@@ -1250,18 +1299,18 @@ Sets the authentication token seed (key) for the user. This key may be then be u
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
-param1 = 'param1_example' # str | The authentication token seed (key) to use for the user. (optional)
+token = 'token_example' # str | The authentication token seed (key) to use for the user. (optional)
 
 try:
     # Two-Factor Authentication
-    api_response = api_instance.set_two_factor_authentication(id, param1=param1)
+    api_response = api_instance.set_two_factor_authentication(id, token=token)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->set_two_factor_authentication: %s\n" % e)
@@ -1272,7 +1321,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the user. | 
- **param1** | **str**| The authentication token seed (key) to use for the user. | [optional] 
+ **token** | **str**| The authentication token seed (key) to use for the user. | [optional] 
 
 ### Return type
 
@@ -1290,7 +1339,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_user_asset_groups**
-> Links set_user_asset_groups(id, param1=param1)
+> Links set_user_asset_groups(id, asset_group_ids=asset_group_ids)
 
 Asset Groups Access
 
@@ -1300,18 +1349,18 @@ Updates the asset groups to which the user has access. Individual asset group ac
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The identifiers of the asset groups to grant the user access to. Ignored if user has access to `allAssetGroups`. (optional)
+asset_group_ids = [rapid7vmconsole.list[int]()] # list[int] | The identifiers of the asset groups to grant the user access to. Ignored if user has access to `allAssetGroups`. (optional)
 
 try:
     # Asset Groups Access
-    api_response = api_instance.set_user_asset_groups(id, param1=param1)
+    api_response = api_instance.set_user_asset_groups(id, asset_group_ids=asset_group_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->set_user_asset_groups: %s\n" % e)
@@ -1322,7 +1371,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the user. | 
- **param1** | **list[int]**| The identifiers of the asset groups to grant the user access to. Ignored if user has access to &#x60;allAssetGroups&#x60;. | [optional] 
+ **asset_group_ids** | **list[int]**| The identifiers of the asset groups to grant the user access to. Ignored if user has access to &#x60;allAssetGroups&#x60;. | [optional] 
 
 ### Return type
 
@@ -1340,7 +1389,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_user_sites**
-> Links set_user_sites(id, param1=param1)
+> Links set_user_sites(id, site_ids=site_ids)
 
 Sites Access
 
@@ -1350,18 +1399,18 @@ Updates the sites to which the user has access. Individual site access cannot be
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The identifiers of the sites to grant the user access to. Ignored if the user has access to `allSites`. (optional)
+site_ids = [rapid7vmconsole.list[int]()] # list[int] | The identifiers of the sites to grant the user access to. Ignored if the user has access to `allSites`. (optional)
 
 try:
     # Sites Access
-    api_response = api_instance.set_user_sites(id, param1=param1)
+    api_response = api_instance.set_user_sites(id, site_ids=site_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->set_user_sites: %s\n" % e)
@@ -1372,7 +1421,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the user. | 
- **param1** | **list[int]**| The identifiers of the sites to grant the user access to. Ignored if the user has access to &#x60;allSites&#x60;. | [optional] 
+ **site_ids** | **list[int]**| The identifiers of the sites to grant the user access to. Ignored if the user has access to &#x60;allSites&#x60;. | [optional] 
 
 ### Return type
 
@@ -1400,12 +1449,12 @@ Unlocks a locked user account that has too many failed authentication attempts. 
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
 
 try:
@@ -1438,7 +1487,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_role**
-> Links update_role(id, param0=param0)
+> Links update_role(id, role=role)
 
 Role
 
@@ -1448,18 +1497,18 @@ Updates the details of a role.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 'id_example' # str | The identifier of the role.
-param0 = swaggerNexposeClient.Role() # Role | The details of the role. (optional)
+role = rapid7vmconsole.Role() # Role | The details of the role. (optional)
 
 try:
     # Role
-    api_response = api_instance.update_role(id, param0=param0)
+    api_response = api_instance.update_role(id, role=role)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->update_role: %s\n" % e)
@@ -1470,7 +1519,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The identifier of the role. | 
- **param0** | [**Role**](Role.md)| The details of the role. | [optional] 
+ **role** | [**Role**](Role.md)| The details of the role. | [optional] 
 
 ### Return type
 
@@ -1488,7 +1537,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user**
-> Links update_user(id, param1=param1)
+> Links update_user(id, user=user)
 
 User
 
@@ -1498,18 +1547,18 @@ Updates the details of a user. <span class=\"authorization\">Global Administrato
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.UserApi()
+api_instance = rapid7vmconsole.UserApi()
 id = 56 # int | The identifier of the user.
-param1 = swaggerNexposeClient.User() # User | The details of the user. (optional)
+user = rapid7vmconsole.UserEdit() # UserEdit | The details of the user. (optional)
 
 try:
     # User
-    api_response = api_instance.update_user(id, param1=param1)
+    api_response = api_instance.update_user(id, user=user)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->update_user: %s\n" % e)
@@ -1520,7 +1569,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the user. | 
- **param1** | [**User**](User.md)| The details of the user. | [optional] 
+ **user** | [**UserEdit**](UserEdit.md)| The details of the user. | [optional] 
 
 ### Return type
 

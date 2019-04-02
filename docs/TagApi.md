@@ -1,6 +1,6 @@
-# swaggerNexposeClient.TagApi
+# rapid7vmconsole.TagApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://localhost:3780*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **create_tag**
-> ReferenceWithTagIDLink create_tag(param0=param0)
+> ReferenceWithTagIDLink create_tag(tag=tag)
 
 Tags
 
@@ -38,17 +38,17 @@ Creates a new tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
-param0 = swaggerNexposeClient.Tag() # Tag | The details of the tag. (optional)
+api_instance = rapid7vmconsole.TagApi()
+tag = rapid7vmconsole.Tag() # Tag | The details of the tag. (optional)
 
 try:
     # Tags
-    api_response = api_instance.create_tag(param0=param0)
+    api_response = api_instance.create_tag(tag=tag)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TagApi->create_tag: %s\n" % e)
@@ -58,7 +58,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **param0** | [**Tag**](Tag.md)| The details of the tag. | [optional] 
+ **tag** | [**Tag**](Tag.md)| The details of the tag. | [optional] 
 
 ### Return type
 
@@ -86,12 +86,12 @@ Deletes the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -134,12 +134,12 @@ Returns a tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -182,12 +182,12 @@ Returns the asset groups associated with the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -230,12 +230,12 @@ Returns the search criteria associated with the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -278,12 +278,12 @@ Returns the assets tagged with a tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -326,12 +326,12 @@ Returns the sites associated with the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -374,12 +374,12 @@ Returns all tags.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 name = 'name_example' # str | name (optional)
 type = 'type_example' # str | type (optional)
 page = 0 # int | The index of the page (zero-based) to retrieve. (optional) (default to 0)
@@ -430,12 +430,12 @@ Removes the search criteria associated with the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -478,12 +478,12 @@ Removes the associations between the tag and the sites.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -516,7 +516,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_tagged_asset_groups**
-> Links set_tagged_asset_groups(id, param1=param1)
+> Links set_tagged_asset_groups(id, asset_group_ids=asset_group_ids)
 
 Tag Asset Groups
 
@@ -526,18 +526,18 @@ Sets the asset groups associated with the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The asset groups to add to the tag. (optional)
+asset_group_ids = [rapid7vmconsole.list[int]()] # list[int] | The asset groups to add to the tag. (optional)
 
 try:
     # Tag Asset Groups
-    api_response = api_instance.set_tagged_asset_groups(id, param1=param1)
+    api_response = api_instance.set_tagged_asset_groups(id, asset_group_ids=asset_group_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TagApi->set_tagged_asset_groups: %s\n" % e)
@@ -548,7 +548,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the tag. | 
- **param1** | **list[int]**| The asset groups to add to the tag. | [optional] 
+ **asset_group_ids** | **list[int]**| The asset groups to add to the tag. | [optional] 
 
 ### Return type
 
@@ -566,7 +566,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_tagged_sites**
-> Links set_tagged_sites(id, param1=param1)
+> Links set_tagged_sites(id, sites=sites)
 
 Tag Sites
 
@@ -576,18 +576,18 @@ Sets the sites associated with the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
-param1 = [swaggerNexposeClient.list[int]()] # list[int] | The sites to add to the tag. (optional)
+sites = [rapid7vmconsole.list[int]()] # list[int] | The sites to add to the tag. (optional)
 
 try:
     # Tag Sites
-    api_response = api_instance.set_tagged_sites(id, param1=param1)
+    api_response = api_instance.set_tagged_sites(id, sites=sites)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TagApi->set_tagged_sites: %s\n" % e)
@@ -598,7 +598,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the tag. | 
- **param1** | **list[int]**| The sites to add to the tag. | [optional] 
+ **sites** | **list[int]**| The sites to add to the tag. | [optional] 
 
 ### Return type
 
@@ -626,12 +626,12 @@ Adds an asset to the tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 asset_id = 789 # int | The identifier of the asset.
 
@@ -676,12 +676,12 @@ Adds an asset group to this tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 asset_group_id = 56 # int | The asset group identifier.
 
@@ -726,12 +726,12 @@ Adds a site to this tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 site_id = 56 # int | The identifier of the site.
 
@@ -776,12 +776,12 @@ Removes the associations between the tag and all asset groups.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 
 try:
@@ -824,12 +824,12 @@ Removes an asset from the tag. Note: The asset must be added through the asset o
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 asset_id = 789 # int | The identifier of the asset.
 
@@ -874,12 +874,12 @@ Removes an asset group from this tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 asset_group_id = 56 # int | The asset group identifier.
 
@@ -924,12 +924,12 @@ Removes a site from this tag.
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
 site_id = 56 # int | The identifier of the site.
 
@@ -964,7 +964,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tag**
-> Links update_tag(id, param0=param0)
+> Links update_tag(id, tag=tag)
 
 Tag
 
@@ -974,18 +974,18 @@ Updates the details of a tag. For more information about accepted fields for the
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
-param0 = swaggerNexposeClient.Tag() # Tag | The details of the tag. (optional)
+tag = rapid7vmconsole.Tag() # Tag | The details of the tag. (optional)
 
 try:
     # Tag
-    api_response = api_instance.update_tag(id, param0=param0)
+    api_response = api_instance.update_tag(id, tag=tag)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TagApi->update_tag: %s\n" % e)
@@ -996,7 +996,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the tag. | 
- **param0** | [**Tag**](Tag.md)| The details of the tag. | [optional] 
+ **tag** | [**Tag**](Tag.md)| The details of the tag. | [optional] 
 
 ### Return type
 
@@ -1014,7 +1014,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tag_search_criteria**
-> Links update_tag_search_criteria(id, param1=param1)
+> Links update_tag_search_criteria(id, criterial=criterial)
 
 Tag Search Criteria
 
@@ -1024,18 +1024,18 @@ Updates the search criteria associated with the tag.   The following table outli
 ```python
 from __future__ import print_function
 import time
-import swaggerNexposeClient
-from swaggerNexposeClient.rest import ApiException
+import rapid7vmconsole
+from rapid7vmconsole.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swaggerNexposeClient.TagApi()
+api_instance = rapid7vmconsole.TagApi()
 id = 56 # int | The identifier of the tag.
-param1 = swaggerNexposeClient.SearchCriteria() # SearchCriteria | The details of the search criteria. (optional)
+criterial = rapid7vmconsole.SearchCriteria() # SearchCriteria | The details of the search criteria. (optional)
 
 try:
     # Tag Search Criteria
-    api_response = api_instance.update_tag_search_criteria(id, param1=param1)
+    api_response = api_instance.update_tag_search_criteria(id, criterial=criterial)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TagApi->update_tag_search_criteria: %s\n" % e)
@@ -1046,7 +1046,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The identifier of the tag. | 
- **param1** | [**SearchCriteria**](SearchCriteria.md)| The details of the search criteria. | [optional] 
+ **criterial** | [**SearchCriteria**](SearchCriteria.md)| The details of the search criteria. | [optional] 
 
 ### Return type
 
